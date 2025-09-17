@@ -1,0 +1,183 @@
+:root{
+  --bg:#f7f8fb;
+  --muted:#6b7280;
+  --text:#0f172a;
+  --primary:#7c3aed;
+  --primary-2:#8b5cf6;
+  --card:#ffffff;
+  --ring:rgba(124,58,237,.25)
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+  radial-gradient(480px 480px at 8% 12%, rgba(168,85,247,.12), transparent 60%),
+  radial-gradient(420px 420px at 92% 24%, rgba(20,184,166,.12), transparent 55%),
+  #f5f6fb; color:var(--text)}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 16px}
+
+/* Liquid glass animated background (behind all content) */
+.liquid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;filter:blur(24px) saturate(105%);opacity:0;transition:opacity .35s ease, filter .35s ease}
+.liquid-bg canvas{width:100%;height:100%;display:block}
+/* Reveal and intensify the effect on hover */
+body:hover .liquid-bg{opacity:.9;filter:blur(36px) saturate(115%)}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #e5e7eb}
+.topbar .container{display:flex;align-items:center;gap:18px;padding:10px 16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand i{color:var(--primary)}
+.nav{display:flex;gap:14px;margin-left:8px}
+.nav a{color:#6b7280;text-decoration:none;font-weight:600}
+.nav a.active{color:var(--primary)}
+.user{margin-left:auto;display:flex;align-items:center;gap:8px;color:#1f2937}
+/* Account menu (dashboard navbar) */
+.account{
+  margin-left:auto; 
+  position:relative
+}
+.account-btn{display:flex; align-items:center; gap:8px; padding:8px 12px; border-radius:9999px; border:1px solid #e5e7eb; background:#fff; color:#111827; cursor:pointer; font-weight:600}
+.account-btn i.fa-circle-user{font-size:18px; color:#4f46e5}
+.account-menu{position:absolute; right:0; top:120%; width:240px; background:#fff; border:1px solid #e5e7eb; border-radius:12px; box-shadow:0 10px 35px rgba(2,6,23,.15); padding:10px; opacity:0; visibility:hidden; transform:translateY(-6px); transition:all .2s ease; z-index:60}
+.account.open .account-menu{opacity:1; visibility:visible; transform:translateY(0)}
+.account-header{display:flex; align-items:center; gap:10px; padding:8px 10px 12px; border-bottom:1px solid #e5e7eb}
+.account-header i.fa-circle-user{font-size:24px; color:#4f46e5}
+.account-header .name{font-weight:800}
+.account-header .email{font-size:12px; color:#6b7280}
+.menu-item{display:flex; align-items:center; gap:10px; padding:10px; border-radius:8px; color:#374151; text-decoration:none}
+.menu-item:hover{background:#f3f4f6}
+.menu-item.logout{color:#dc2626}
+
+/* Welcome banner */
+.main{padding:24px 0 40px}
+.welcome-banner{display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;background:
+  linear-gradient(135deg, var(--primary), var(--primary-2));
+  color:#fff;
+  border-radius:16px;
+  padding:22px 24px;
+  box-shadow:0 10px 30px rgba(124,58,237,.25)}
+.welcome-text .eyebrow{opacity:.9;font-weight:600}
+.welcome-text h1{margin:6px 0 0;font-size:28px}
+.metrics{display:flex;gap:10px}
+.metric{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.15);padding:12px 14px;border-radius:12px}
+.metric .label{font-size:12px;opacity:.9}
+.metric .value{font-size:18px;font-weight:800}
+
+/* Grid */
+.bento-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
+.bento-item{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:16px;box-shadow:0 8px 24px rgba(2,6,23,.06);position:relative;min-height:160px;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+.bento-item.span-2{grid-column:span 2}
+.item-head{display:flex;align-items:center;justify-content:space-between}
+.item-head i{font-size:18px;color:var(--primary)}
+.icon-violet{color:#7c3aed}
+.icon-green{color:#10b981}
+.icon-blue{color:#3b82f6}
+.icon-orange{color:#f59e0b}
+.icon-pink{color:#ec4899}
+.icon-teal{color:#14b8a6}
+.icon-rose{color:#f43f5e}
+.bento-item:hover{transform:translateY(-6px) scale(1.02); box-shadow:0 14px 34px rgba(2,6,23,.12); border-color:#d1d5db}
+.bento-item:after{content:""; position:absolute; inset:0; border-radius:14px; pointer-events:none; opacity:0; transition:opacity .25s ease; background: radial-gradient(600px 200px at var(--mx,50%) var(--my,0%), rgba(124,58,237,.08), transparent 60%)}
+.bento-item:hover:after{opacity:1}
+.item-title{margin:8px 0 4px;font-size:18px}
+.item-desc{color:var(--muted);font-size:14px}
+.edit{border:none;background:#f3f4f6;
+  border-radius:8px;
+  padding:6px 8px;
+  cursor:pointer;color:#374151}
+.edit:hover{background:#e5e7eb}
+.empty-state{
+  margin-top:10px;
+  color:#9ca3af;
+  display:flex;
+  align-items:center;
+  gap:8px
+}
+.notices{
+  margin:8px 0 0;
+  padding-left:18px;
+  color:#374151
+}
+.badge{font-size:11px;
+  border-radius:999px;
+  padding:2px 8px;
+  margin-right:6px
+}
+.badge.low{
+  background:#e5f4ff;
+  color:#2563eb
+}
+.badge.high{
+  background:#fff1f2;
+  color:#e11d48
+}
+.calendar{
+  margin-top:8px;
+  border:1px dashed #e5e7eb;
+  border-radius:10px;
+  padding:12px;
+  color:#6b7280;
+  text-align:center
+}
+
+/* Animations for icons */
+.spin-slow{animation:spin 6s linear infinite}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+.float-y{animation:floatY 3s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.roll-icon{transition:transform .05s linear}
+
+/* Footer */
+.footer{color:#6b7280;font-size:14px;padding:20px 0}
+
+@media (max-width: 900px){
+  .bento-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bento-item.span-2{grid-column:span 2}
+}
+@media (max-width: 540px){
+  .bento-grid{grid-template-columns:1fr}
+  .welcome-banner{flex-direction:column;align-items:flex-start}
+  .metrics{width:100%;justify-content:space-between}
+}
+
+/* Dashboard navbar fixes and enhancements */
+/* Ensure account dropdown remains clickable by constraining the central nav overlay */
+.navbar .nav-items{
+  left:160px;
+  right:200px;
+  top:0;
+  bottom:0;
+}
+
+/* Boost stacking for account area just in case */
+.navbar .account{
+  z-index:30;
+}
+
+/* Stronger glass/blur for navbar on dashboard */
+.navbar-wrapper{
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+}
+.nav-body,
+.nav-body.visible{
+  backdrop-filter:blur(25px);
+  -webkit-backdrop-filter:blur(25px);
+}
+
+/* Remove the fluid hover box behind navbar links on dashboard */
+.nav-hover-bg{display:none !important}
+
+/* Remove the pill/glass box behind the navbar on dashboard */
+.navbar .nav-body{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  backdrop-filter:none !important;
+  -webkit-backdrop-filter:none !important;
+  border-radius:0 !important;
+}
