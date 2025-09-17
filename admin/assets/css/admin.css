@@ -1,0 +1,103 @@
+/* Admin panel shared styles (scoped enhancements) */
+
+/* Create Class modal panel */
+#create-class-modal .admin-modal {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(2,6,23,.15);
+}
+
+#create-class-modal .admin-modal .border-b {
+  background: #fafafa;
+}
+
+#create-class-modal h2 {
+  font-weight: 700;
+}
+
+/* Inputs and labels */
+#create-class-modal label {
+  color: #374151;
+  font-weight: 600;
+}
+
+#create-class-modal input[type="text"],
+#create-class-modal input[type="number"],
+#create-class-modal select,
+#create-class-modal textarea {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+#create-class-modal input[type="text"]:focus,
+#create-class-modal input[type="number"]:focus,
+#create-class-modal select:focus,
+#create-class-modal textarea:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,.15);
+  outline: none;
+}
+
+/* File dropzone (JS wraps native inputs) */
+#create-class-modal .file-dropzone {
+  position: relative;
+  border: 2px dashed #d1d5db;
+  border-radius: 12px;
+  background: #fff;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+#create-class-modal .file-dropzone.is-dragover {
+  border-color: #7c3aed;
+  background: #faf5ff;
+  box-shadow: inset 0 0 0 2px rgba(124,58,237,.2);
+}
+#create-class-modal .file-input-native {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+#create-class-modal .file-dropzone-info {
+  pointer-events: none;
+  color: #6b7280;
+}
+#create-class-modal .file-dropzone-info i {
+  display: block;
+  font-size: 28px;
+  color: #7c3aed;
+  margin-bottom: 8px;
+}
+#create-class-modal .file-dropzone-info p {
+  margin: 4px 0;
+}
+#create-class-modal .file-dropzone-info small {
+  color: #9ca3af;
+}
+#create-class-modal .file-helper-text {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Description counter */
+#create-class-modal .char-counter {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 12px;
+  color: #9ca3af;
+}
+#create-class-modal .char-counter.over { color: #dc2626; }
+
+/* Action buttons */
+#create-class-modal .actions .btn-primary {
+  background: #7c3aed;
+}
+
